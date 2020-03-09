@@ -1,14 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <Header class="col-12" title="Caminho das Masmorras" />
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+//import Main from "./components/Main.vue";
+//import CartaoFilme from "./components/CartaoFilme.vue";
+import Header from "./components/Header.vue";
+
+export default {
+  name: "App",
+  data: function(){
+    return{};
+  },
+  components: {
+    Header
+  }
+};
+</script>
+
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
