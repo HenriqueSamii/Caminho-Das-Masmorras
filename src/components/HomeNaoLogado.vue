@@ -12,9 +12,9 @@
         <p tabindex="4">Aqui voce conseguira encontrar novas mesas de jogos, editores e jopgadores.</p>
       </div>
     </article>
-    <article class="card">
+    <div class="card">
       <h2 class="card-heading  text-center my-auto" tabindex="5">Sobre nós</h2>
-      <div class="row imgText">
+      <div class="row justify-content-center imgText">
         <div class="col-xs-6 img">
           <img
           tabindex="6"
@@ -29,7 +29,7 @@
           </p>
         </div>
       </div>
-    </article>
+    </div>
     <article>
       <h2 tabindex="8">Sobre o criador</h2>
       <div class="imgText">
@@ -121,30 +121,37 @@ export default {
     overflow: auto;	
 }
  */
- .imgText{
-    margin:0 auto;
+.card{
+  margin: 0.5em,0,0.5em,0;
+  padding: 0.5em;
+}
+
+.imgText{
+    float: none;
+    margin: 0 auto;
  }
 .naoLogado div.img img{
-    width: 25em;
+    width: 40em;
+    position: relative;
    
 }
 
 .naoLogado div.text{
 	padding: 20px;
-
-	width: 60%;
+	width: 50%;
 }
 
 @media (orientation: portrait) {
   /* For vertical viewports */
   .naoLogado div.img img{
     width: 80%;
-   
+    float: none;
+    display: block;
+    margin: 0 auto;
 }
 
 .naoLogado div.text{
 	padding: 20px;
-
 	width: 80%;
 }
 }
