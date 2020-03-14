@@ -1,14 +1,14 @@
 <template>
   <div id="header">
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <router-link tag="b-navbar-brand" :to="{name:'main'}">Caminho Das Masmorras</router-link>
+      <router-link tag="b-navbar-brand" :to="{name:'Home'}">Caminho Das Masmorras</router-link>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <router-link tag="b-nav-item" :to="{name:'main'}">Home</router-link>
-          <router-link tag="b-nav-item" :to="{name:'main'}">Eventos</router-link>
+          <router-link tag="b-nav-item" :to="{name:'Home'}">Home</router-link>
+          <router-link tag="b-nav-item" :to="{name:'Eventos'}">Eventos</router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->

@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="submitDiv">
-            <input tabindex="21" type="submit" name="submit" id="contatoSubmit" />
+            <input tabindex="21" type="submit" />
           </div>
         </form>
       </div>
