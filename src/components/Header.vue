@@ -1,31 +1,45 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-            <router-link 
-            tag="a"
-            class="nav-link"
-            :to="{name:'main'}">
-              Home</router-link>
-          <!-- <a class="nav-link" href="/">Home</a> -->
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
-      </ul>
-    </nav>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <router-link tag="b-navbar-brand" :to="{name:'main'}">Caminho Das Masmorras</router-link>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <router-link tag="b-nav-item" :to="{name:'main'}">Home</router-link>
+          <router-link tag="b-nav-item" :to="{name:'main'}">Eventos</router-link>
+        </b-navbar-nav>
+
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <router-link tag="b-nav-item" :to="{name:'criarConta'}">Criar Conta</router-link>
+            <router-link tag="b-nav-item" :to="{name:'login'}">Login</router-link>
+
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template v-slot:button-content>
+              <em>User</em>
+            </template>
+            <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  computed: {
+    myFunction: function() {
+      return null;
+    }
+  }
 };
 </script>
+
+<style>
+</style>
