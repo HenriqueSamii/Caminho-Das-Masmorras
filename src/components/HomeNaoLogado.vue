@@ -12,17 +12,17 @@
         <p tabindex="4">Aqui voce conseguira encontrar novas mesas de jogos, editores e jopgadores.</p>
       </div>
     </article>
-    <article>
-      <h2 tabindex="5">Sobre nós</h2>
-      <div class="imgText">
-        <div class="img">
+    <article class="card">
+      <h2 class="card-heading  text-center my-auto" tabindex="5">Sobre nós</h2>
+      <div class="row imgText">
+        <div class="col-xs-6 img">
           <img
           tabindex="6"
             src="https://miro.medium.com/max/2000/1*N2iZbvzP7v-fTtXxAPdKvQ.jpeg"
             alt="loja de bordgames com um vasto acervo de jogos encaixotados"
           />
         </div>
-        <div class="text">
+        <div class="col-xs-6 text">
           <p tabindex="7">
             O nosso objectivo aqui é de facilitar o encontro de jogadores com novos jogos tabletop, mesas de RPGs,
             eventos e locais de encotro directamente com os lojistas
@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style>
-.naoLogado div{
+/* .naoLogado div{
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -120,15 +120,37 @@ export default {
     flex-flow: row nowrap;
     overflow: auto;	
 }
-
+ */
+ .imgText{
+    margin:0 auto;
+ }
 .naoLogado div.img img{
     width: 25em;
-    align-items: start;
+   
 }
 
 .naoLogado div.text{
 	padding: 20px;
-	align-items: start;
+
 	width: 60%;
 }
+
+@media (orientation: portrait) {
+  /* For vertical viewports */
+  .naoLogado div.img img{
+    width: 80%;
+   
+}
+
+.naoLogado div.text{
+	padding: 20px;
+
+	width: 80%;
+}
+}
+
+/* @media (orientation: landscape) {
+  
+
+} */
 </style>

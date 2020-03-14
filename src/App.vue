@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header class="col-12" title="Caminho das Masmorras" />
-    <router-view/>
+    <div id="corpo">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -22,6 +24,14 @@ export default {
 </script>
 
 <style>
+body{
+  width: 100%;
+}
+#corpo{
+  width: 90%;
+  margin:0 auto;
+  background-color: slategray;
+}
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

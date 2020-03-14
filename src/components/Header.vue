@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="header">
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <router-link tag="b-navbar-brand" :to="{name:'main'}">Caminho Das Masmorras</router-link>
 
@@ -42,5 +42,7 @@ export default {
 </script>
 
 <style>
-
+#header{
+  width: 100%;
+}
 </style>
