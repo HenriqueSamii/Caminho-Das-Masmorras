@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
       <router-link tag="b-navbar-brand" :to="{name:'main'}">Caminho Das Masmorras</router-link>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -42,4 +42,5 @@ export default {
 </script>
 
 <style>
+
 </style>
