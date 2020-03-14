@@ -1,6 +1,6 @@
 <template>
   <div class="naoLogado">
-    <article>
+    <article id="ProcurePor">
       <h2 tabindex="1">Procure por sua aventura</h2>
       <div>
         <form>
@@ -12,7 +12,8 @@
         <p tabindex="4">Aqui voce conseguira encontrar novas mesas de jogos, editores e jopgadores.</p>
       </div>
     </article>
-    <div class="card">
+
+    <div >
       <h2 class="card-heading  text-center my-auto" tabindex="5">Sobre nós</h2>
       <div class="row justify-content-center imgText">
         <div class="col-xs-6 img">
@@ -31,7 +32,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div>
       <h2 class="card-heading  text-center my-auto" tabindex="8">Sobre o criador</h2>
       <div class="row justify-content-center imgText">
         <div class="col-xs-6 img">
@@ -50,8 +51,8 @@
         </div>
       </div>
     </div>
-
-    <article>
+    
+    <div id="formulario">
       <h2 tabindex="12">Contato</h2>
       <div id="formDiv">
         <form>
@@ -92,7 +93,7 @@
           </div>
         </form>
       </div>
-    </article>
+    </div>
   </div>
 </template>
 
@@ -103,26 +104,13 @@ export default {
 </script>
 
 <style>
-/* .naoLogado div{
-	display: flex;
+#formulario, #ProcurePor{
+  display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
 	align-items: center;
 }
 
-.naoLogado article{
-	height: 500px;
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-}
-
-.naoLogado div.imgText{
-    flex-flow: row nowrap;
-    overflow: auto;	
-}
- */
 .card{
   margin: 0.5em,0,0.5em,0;
   padding: 0.5em;
@@ -141,6 +129,10 @@ export default {
 .naoLogado div.text{
 	padding: 20px;
 	width: 50%;
+}
+
+.naoLogado, #formulario{
+  padding-top: 0.5em;
 }
 
 @media (orientation: portrait) {
