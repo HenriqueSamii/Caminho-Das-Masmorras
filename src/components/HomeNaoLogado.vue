@@ -30,17 +30,18 @@
         </div>
       </div>
     </div>
-    <article>
-      <h2 tabindex="8">Sobre o criador</h2>
-      <div class="imgText">
-        <div class="img">
+
+    <div class="card">
+      <h2 class="card-heading  text-center my-auto" tabindex="8">Sobre o criador</h2>
+      <div class="row justify-content-center imgText">
+        <div class="col-xs-6 img">
           <img
           tabindex="9"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRUYKLul0Ke5oAAmj6j3dtXqo52adPNlh6moNPv9zrrWYfdhDum"
             alt="foto de henrique samii, o barba"
           />
         </div>
-        <div class="text" tabindex="10">
+        <div class="col-xs-6 text" tabindex="10">
           <p>Cara mais bonito da façe da faculdade. Sua modestidade não encontra oposição nesta dimensão ou outras e sua barba da um +1 em Carisma.</p>
           <p>
             Pode o encontrar no seu coração ou neste link:
@@ -48,7 +49,8 @@
           </p>
         </div>
       </div>
-    </article>
+    </div>
+
     <article>
       <h2 tabindex="12">Contato</h2>
       <div id="formDiv">
@@ -156,8 +158,14 @@ export default {
 }
 }
 
-/* @media (orientation: landscape) {
-  
+ @media only screen and (max-device-width: 768px){
+    .naoLogado div.img img{
+    width: 80%;
+    float: none;
+    display: block;
+    margin: 0 auto;
+}
 
-} */
+
+} 
 </style>
