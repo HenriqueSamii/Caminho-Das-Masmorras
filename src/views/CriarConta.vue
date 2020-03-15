@@ -1,26 +1,20 @@
 <template>
   <div id="criarConta">
-    
+    <LoginECreate v-bind:isLogin="false" page-title="Criar Conta" />
   </div>
 </template>
 
 <script>
 
-//import Header from "./components/Header.vue";
+import LoginECreate from "@/components/LoginECreate.vue";
 export default {
   name: "CriarConta",
-  data: function(){
-    return{};
+  data: function() {
+    return {};
   },
-  methods:{
-    metodoCriarConta: function() {
-      //TODO: Fazer funcao de Criar Conta
-      this.$router.push({ name: 'Home' });
-    }
-  }/* ,
   components: {
-    Header
-  } */
+    LoginECreate
+  }
 };
 </script>
 <style>
