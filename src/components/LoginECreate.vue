@@ -56,12 +56,12 @@ export default {
     },
     metodoLogin: function() {
       //TODO: Fazer funcao de Login
-      console.log(this.$refs.email.value + " " + this.$refs.password.value + " login");
+      //console.log(this.$refs.email.value + " " + this.$refs.password.value + " login");
       this.$router.push({ name: "Home" });
     },
     metodoCriarConta: function() {
       //TODO: Fazer funcao de Criar Conta
-      console.log(this.$refs.email.value + " " + this.$refs.password.value + " criar conta");
+      //console.log(this.$refs.email.value + " " + this.$refs.password.value + " criar conta");
       this.$router.push({ name: "Home" });
     }
   }
