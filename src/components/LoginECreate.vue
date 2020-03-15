@@ -1,5 +1,6 @@
 <template>
   <div id="loginECreate">
+      <h1>{{pageTitle}}</h1>
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -34,6 +35,7 @@
 export default {
   name: "loginECreate",
   props: {
+    pageTitle: String,
     isLogin: Boolean
   },
   data: function() {

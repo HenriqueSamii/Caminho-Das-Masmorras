@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <LoginECreate v-bind:isLogin="true" />
+    <LoginECreate v-bind:isLogin="true" pageTitle="Login" />
   </div>
 </template>
 
