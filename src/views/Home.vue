@@ -11,12 +11,14 @@
 // @ is an alias to /src
 /* import HelloWorld from "@/components/HelloWorld.vue"; */
 import HomeNaoLogado from "@/components/HomeNaoLogado.vue"; 
+import HomeLogado from "@/components/HomeLogado.vue"; 
 
 export default {
   name: "Home",
   components: {
     //HelloWorld
-    HomeNaoLogado
+    HomeNaoLogado,
+    HomeLogado
   },
   data: function(){
     return{
