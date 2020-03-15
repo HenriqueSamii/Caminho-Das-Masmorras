@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Eventos from '../views/Eventos.vue'
+import Login from '../views/Login.vue'
+import CriarConta from '../views/CriarConta.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,16 @@ const routes = [
     path: '/eventos',
     name: 'Eventos',
     component: Eventos
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/CriarConta',
+    name: 'CriarConta',
+    component: CriarConta
   }/* ,
   {
     path: '/about',
