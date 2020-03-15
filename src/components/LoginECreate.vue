@@ -28,7 +28,7 @@
         />
       </div>
       <button v-if="isLogin" type="submit" class="btn btn-primary">Logar</button>
-      <button v-else type="submit" class="btn btn-primary" v-on:click="metodoCriarConta">Criar Conta</button>
+      <button v-else type="submit" class="btn btn-primary" >Criar Conta</button>
     </form>
   </div>
 </template>
