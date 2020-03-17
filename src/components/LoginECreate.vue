@@ -2,6 +2,19 @@
   <div id="loginECreate">
     <h1>{{pageTitle}}</h1>
     <form v-on:submit.prevent="metodoFormSubmit">
+      <div v-if="!isLogin" class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          v-model="nome"
+          ref="nome"
+          type="text"
+          class="form-control"
+          id="exampleInputNome1"
+          aria-describedby="nomeHelp"
+          placeholder="Enter Nome"
+          required
+        />
+      </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input
@@ -43,7 +56,8 @@ export default {
   data: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      nome:""
     };
   },
   methods: {
