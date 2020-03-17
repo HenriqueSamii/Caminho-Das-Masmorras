@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    usuarioLogado:{},
     usuarios:[
       {id:1,nome:"teste nome 1",email:"a@a.com",password:"a"},
       {id:2,nome:"teste nome 2",email:"aa@a.com",password:"a"}
@@ -20,11 +21,39 @@ export default new Vuex.Store({
     ]
   },
   getters:{
-    getUsuarioById: (state) => (id) => {
-      return state.usuarios.find(todo => todo.id === id)
+    usuarioById: (state) => (id) => {
+      return state.usuarios.find(usuario => usuario.id === id)
     },
-    getAllUsuarios: state => {
+    allUsuarios: state => {
       return state.usuarios
+    },
+    usuarioNomeExists: (state) => (nome) => {
+      let usuario = state.usuarios.find(usuario => usuario.nome === nome);
+      if (usuario) {
+        return true
+      }
+      return false
+    },
+    usuarioEmailExists: (state) => (email) => {
+      let usuario = state.usuarios.find(usuario => usuario.email === email);
+      if (usuario) {
+        return true
+      }
+      return false
+    },
+    ///////////////////////////
+    allPosts: state => {
+      return state.posts
+    },
+    postById: (state) => (id) => {
+      return state.posts.find(post => post.id === id)
+    },
+    //////////////////////////
+    allEventos: state => {
+      return state.eventos
+    },
+    eventoById: (state) => (id) => {
+      return state.usuarios.find(evento => evento.id === id)
     }
   }
   ,mutations: {
