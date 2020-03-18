@@ -40,6 +40,9 @@ export default {
     deslogar: function() {
       //TODO: Fazer funcao de deslogar
       this.$router.push({ name: 'Home' });
+    },
+    computed: function(){
+      
     }
   }
 };
