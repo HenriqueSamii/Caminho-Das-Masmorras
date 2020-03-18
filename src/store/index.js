@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    usuarioLogado:{},
+    usuarioLogadoId:null,
     usuarios:[
       {id:1,nome:"teste nome 1",email:"a@a.com",password:"a"},
       {id:2,nome:"teste nome 2",email:"aa@a.com",password:"a"}
@@ -54,12 +54,60 @@ export default new Vuex.Store({
     },
     eventoById: (state) => (id) => {
       return state.usuarios.find(evento => evento.id === id)
+    },
+    meusEventos: (state) => {
+      return state.usuarios.find(evento => evento.criadorId === usuarioLogadoId)
     }
   }
   ,mutations: {
+    setUsuarioLogadoId (state, id){
+      state.usuarioLogadoId = id;
+    },
+    deleteUsuarioLogadoId (state){
+      state.usuarioLogadoId = null;
+    },
+    ///////////////////////////
+    createUsuario (state){
+      state.usuarioLogadoId = null;
+    },
+    ///////////////////////////
+    createPost (state){
+      state.usuarioLogadoId = null;
+    },
+    deletePost (state, id){
+      state.usuarioLogadoId = null;
+    },
+    editPost (state, id){
+      state.usuarioLogadoId = null;
+    },
+    ///////////////////////////
+    createEvento (state, evento){
+      let idHolder = 0;
+      for (let e of state.eventos) {
+        if (idHolder < e.id) {
+          idHolder = e.id;
+        }
+      }
+      evento.id = ++idHolder;
+      state.eventos.push(evento);
+    },
+    deleteEvento (state, id){
+      for (let [i, evento] of state.eventos) {
+        if (evento.id == id) {
+          state.eventos.splice(i, 1);
+          break;
+        }
+      }
+    },
+    editEvento (state, evento){
+      for (let [i, e] of state.eventos) {
+        if (e.id == evento.id) {
+          state.eventos[i] = evento;
+          break;
+        }
+      }
+    }
   },
   actions: {
-  },
-  modules: {
   }
 })
