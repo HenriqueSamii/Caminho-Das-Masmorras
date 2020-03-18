@@ -1,6 +1,7 @@
 <template>
   <div id="loginECreate">
     <h1>{{pageTitle}}</h1>
+    <p v-if="erro != '' || erro != null">{{erro}}</p>
     <form v-on:submit.prevent="metodoFormSubmit">
       <div v-if="!isLogin" class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -55,13 +56,15 @@ export default {
   },
   data: function() {
     return {
+      erro:""/* ,
       email: "",
       password: "",
-      nome:""
+      nome:"" */
     };
   },
   methods: {
     metodoFormSubmit: function() {
+      this.erro == "";
       if (this.isLogin) {
         this.metodoLogin();
       } else {
@@ -71,11 +74,28 @@ export default {
     metodoLogin: function() {
       //TODO: Fazer funcao de Login
       //console.log(this.$refs.email.value + " " + this.$refs.password.value + " login");
-      this.$router.push({ name: "Home" });
+      if (this.$store.getters.usuarioEmailExists(this.$refs.email.value)) {
+        let user = this.$store.getters.usuarioByEmail(this.$refs.email.value);
+        if (user.password == this.$refs.password.value) {
+          this.$store.actions.login(user.id);
+          this.$router.push({ name: "Home" }); 
+        }else{
+          this.erro == "Passwor errada";
+        }
+      }else {
+        this.erro == "Usuario nao existe";
+      }
     },
     metodoCriarConta: function() {
       //TODO: Fazer funcao de Criar Conta
       //console.log(this.$refs.email.value + " " + this.$refs.password.value + " criar conta");
+      if (condition) {
+        
+      }else if (condition) {
+        
+      } else {
+        
+      }
       this.$router.push({ name: "Home" });
     }
   }

@@ -71,6 +71,9 @@ export default new Vuex.Store({
     usuarioById: (state) => (id) => {
       return state.usuarios.find(usuario => usuario.id === id)
     },
+    usuarioByEmail: (state) => (email) => {
+      return state.usuarios.find(usuario => usuario.email === email)
+    },
     allUsuarios: state => {
       return state.usuarios
     },
