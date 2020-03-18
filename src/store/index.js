@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import evento from "./modules/evento";
+import post from "./modules/post";
+import usuario from "./modules/usuario";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  /* state: {
     usuarioLogadoId: null,
     usuarios: [{
         id: 1,
@@ -106,7 +109,7 @@ export default new Vuex.Store({
       return state.usuarios.find(evento => evento.id === id)
     },
     meusEventos: (state) => {
-      return state.usuarios.find(evento => evento.criadorId === usuarioLogadoId)
+      return state.usuarios.find(evento => evento.criadorId === state.usuarioLogadoId)
     }
   },
   mutations: {
@@ -245,5 +248,10 @@ export default new Vuex.Store({
         evento
       })
     }
+  }, */ 
+  modules:{
+    evento,
+    post,
+    usuario
   }
 })

@@ -89,13 +89,13 @@ export default {
     metodoCriarConta: function() {
       //TODO: Fazer funcao de Criar Conta
       //console.log(this.$refs.email.value + " " + this.$refs.password.value + " criar conta");
-      if (condition) {
+      /* if (condition) {
         
       }else if (condition) {
         
       } else {
         
-      }
+      } */
       this.$router.push({ name: "Home" });
     }
   }
