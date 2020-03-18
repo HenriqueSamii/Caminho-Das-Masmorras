@@ -48,6 +48,10 @@
 </template>
 
 <script>
+
+import { mapActions } from "vuex";
+//import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "loginECreate",
   props: {
@@ -56,13 +60,14 @@ export default {
   },
   data: function() {
     return {
-      erro:""/* ,
+      erro:"",
       email: "",
       password: "",
-      nome:"" */
+      nome:""
     };
   },
   methods: {
+    ...mapActions(["login"]),
     metodoFormSubmit: function() {
       this.erro == "";
       if (this.isLogin) {
@@ -77,13 +82,13 @@ export default {
       if (this.$store.getters.usuarioEmailExists(this.$refs.email.value)) {
         let user = this.$store.getters.usuarioByEmail(this.$refs.email.value);
         if (user.password == this.$refs.password.value) {
-          this.$store.actions.login(user.id);
+          this.login(user.id);
           this.$router.push({ name: "Home" }); 
         }else{
-          this.erro == "Passwor errada";
+          this.erro = "Passwor errada";
         }
       }else {
-        this.erro == "Usuario nao existe";
+        this.erro = "Usuario nao existe";
       }
     },
     metodoCriarConta: function() {
