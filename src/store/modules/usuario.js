@@ -21,6 +21,9 @@ const getters = {
         }
         return false
     },
+    getUsuarioLogado: (state) => {
+        return state.usuarioLogadoId
+    },
     usuarioById: (state) => (id) => {
         return state.usuarios.find(usuario => usuario.id === id)
     },
@@ -53,6 +56,7 @@ const mutations = {
     },
     deleteUsuarioLogadoId(state) {
         state.usuarioLogadoId = null;
+        console.log(state.usuarioLogadoId )
     },
     ///////////////////////////
     createUsuario(state, {

@@ -42,6 +42,7 @@ export default {
     ...mapActions(["logout"]),
     deslogar: function() {
       this.logout;
+      //this.$state.usuarioLogadoId = null;
       this.$router.push({ name: "Home" });
     },
     computed: function() {}

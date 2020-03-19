@@ -2,12 +2,13 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <HomeLogado v-if="userLogado"/>
+    <HomeLogado v-if="this.isUsuarioLogado"/>
     <HomeNaoLogado v-else/>
   </div>
 </template>
 
 <script>
+import { mapGetters} from "vuex";
 // @ is an alias to /src
 /* import HelloWorld from "@/components/HelloWorld.vue"; */
 import HomeNaoLogado from "@/components/HomeNaoLogado.vue"; 
@@ -20,10 +21,8 @@ export default {
     HomeNaoLogado,
     HomeLogado
   },
-  data: function(){
-    return{
-      userLogado: false
-    }
+  computed: {
+    ...mapGetters(["isUsuarioLogado"])
   }
 };
 </script>
