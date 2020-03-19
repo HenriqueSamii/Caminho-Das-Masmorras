@@ -8,21 +8,21 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <router-link tag="b-nav-item" :to="{name:'Home'}">Home</router-link>
-          <router-link tag="b-nav-item" :to="{name:'Eventos'}">Eventos</router-link>
+          <router-link v-if="isUsuarioLogado" tag="b-nav-item" :to="{name:'Eventos'}">Eventos</router-link>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <router-link tag="b-nav-item" :to="{name:'CriarConta'}">Criar Conta</router-link>
-            <router-link tag="b-nav-item" :to="{name:'Login'}">Login</router-link>
+          <router-link v-if="!isUsuarioLogado" tag="b-nav-item" :to="{name:'CriarConta'}">Criar Conta</router-link>
+          <router-link v-if="!isUsuarioLogado" tag="b-nav-item" :to="{name:'Login'}">Login</router-link>
 
-          <b-nav-item-dropdown right>
+          <b-nav-item-dropdown right v-if="isUsuarioLogado">
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
               <em>User</em>
             </template>
             <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
-            <b-dropdown-item v-on:click="deslogar" >Sign Out</b-dropdown-item>
+            <b-dropdown-item v-on:click="deslogar">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -31,25 +31,26 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Header",
   computed: {
-    
+    ...mapGetters(["isUsuarioLogado"])
   },
-  methods:{
+  methods: {
+    ...mapActions(["logout"]),
     deslogar: function() {
-      //TODO: Fazer funcao de deslogar
-      this.$router.push({ name: 'Home' });
+      this.logout;
+      this.$router.push({ name: "Home" });
     },
-    computed: function(){
-      
-    }
+    computed: function() {}
   }
 };
 </script>
 
 <style>
-#header{
+#header {
   width: 100%;
 }
 </style>

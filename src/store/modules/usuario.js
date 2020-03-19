@@ -15,6 +15,12 @@ const state = {
     ]
 };
 const getters = {
+    isUsuarioLogado: (state) => {
+        if (state.usuarioLogadoId != null) {
+            return true
+        }
+        return false
+    },
     usuarioById: (state) => (id) => {
         return state.usuarios.find(usuario => usuario.id === id)
     },

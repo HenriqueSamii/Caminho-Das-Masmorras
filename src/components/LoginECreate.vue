@@ -4,7 +4,7 @@
     <p v-if="erro != '' || erro != null">{{erro}}</p>
     <form v-on:submit.prevent="metodoFormSubmit">
       <div v-if="!isLogin" class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1">Nome</label>
         <input
           v-model="nome"
           ref="nome"
@@ -12,12 +12,12 @@
           class="form-control"
           id="exampleInputNome1"
           aria-describedby="nomeHelp"
-          placeholder="Enter Nome"
+          placeholder="Entere com o seu Nome"
           required
         />
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1">Email</label>
         <input
           v-model="email"
           ref="email"
@@ -25,7 +25,7 @@
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          placeholder="Enter email"
+          placeholder="Entere com o seu email"
           required
         />
       </div>
@@ -37,18 +37,17 @@
           type="password"
           class="form-control"
           id="exampleInputPassword1"
-          placeholder="Password"
+          placeholder="Entere com o sua Password"
           required
         />
       </div>
       <button v-if="isLogin" type="submit" class="btn btn-primary">Logar</button>
-      <button v-else type="submit" class="btn btn-primary" >Criar Conta</button>
+      <button v-else type="submit" class="btn btn-primary">Criar Conta</button>
     </form>
   </div>
 </template>
 
 <script>
-
 import { mapActions } from "vuex";
 //import { mapGetters, mapActions } from "vuex";
 
@@ -60,14 +59,14 @@ export default {
   },
   data: function() {
     return {
-      erro:"",
+      erro: "",
       email: "",
       password: "",
-      nome:""
+      nome: ""
     };
   },
   methods: {
-    ...mapActions(["login"]),
+    ...mapActions(["login", "createUsuario"]),
     metodoFormSubmit: function() {
       this.erro == "";
       if (this.isLogin) {
@@ -79,29 +78,34 @@ export default {
     metodoLogin: function() {
       //TODO: Fazer funcao de Login
       //console.log(this.$refs.email.value + " " + this.$refs.password.value + " login");
-      if (this.$store.getters.usuarioEmailExists(this.$refs.email.value)) {
-        let user = this.$store.getters.usuarioByEmail(this.$refs.email.value);
-        if (user.password == this.$refs.password.value) {
+      if (this.$store.getters.usuarioEmailExists(this.email)) {
+        let user = this.$store.getters.usuarioByEmail(this.email);
+        if (user.password == this.password) {
           this.login(user.id);
-          this.$router.push({ name: "Home" }); 
-        }else{
+          this.$router.push({ name: "Home" });
+        } else {
           this.erro = "Passwor errada";
         }
-      }else {
+      } else {
         this.erro = "Usuario nao existe";
       }
     },
     metodoCriarConta: function() {
       //TODO: Fazer funcao de Criar Conta
       //console.log(this.$refs.email.value + " " + this.$refs.password.value + " criar conta");
-      /* if (condition) {
-        
-      }else if (condition) {
-        
+      if (this.$store.getters.usuarioEmailExists(this.email)) {
+        this.erro = "Esse email ja esta sendo uasdo";
       } else {
-        
-      } */
-      this.$router.push({ name: "Home" });
+        this.createUsuario({
+          id: 0,
+          nome: this.nome,
+          email: this.email,
+          password: this.password
+        });
+        this.isLogin = true
+        this.erro = "Usuario criado com sucesso";
+        //this.$router.push({ name: "Home" });
+      }
     }
   }
 };
