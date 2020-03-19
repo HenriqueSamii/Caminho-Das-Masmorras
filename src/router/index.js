@@ -4,11 +4,14 @@ import Home from '../views/Home.vue'
 import Eventos from '../views/Eventos.vue'
 import Login from '../views/Login.vue'
 import CriarConta from '../views/CriarConta.vue'
+import CriarEvento from '../views/CriarEvento.vue'
+import CriarPost from '../views/CriarPost.vue'
+import EditarEvento from '../views/EditarEvento.vue'
+import EditarPost from '../views/EditarPost.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Home',
     component: Home
@@ -27,15 +30,36 @@ const routes = [
     path: '/CriarConta',
     name: 'CriarConta',
     component: CriarConta
-  }/* ,
+  },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" * / '../views/About.vue')
-  } */
+    path: '/post/editar/:id',
+    name: 'EditarPost',
+    component: EditarPost,
+  },
+  {
+    path: '/post/criar',
+    name: 'CriarPost',
+    component: CriarPost,
+  },
+  {
+    path: '/evento/editar/:id',
+    name: 'EditarEvento',
+    component: EditarEvento,
+  },
+  {
+    path: '/evento/criar',
+    name: 'CriarEvento',
+    component: CriarEvento,
+  }
+  /* ,
+    {
+      path: '/about',
+      name: 'About',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" * / '../views/About.vue')
+    } */
 ]
 
 const router = new VueRouter({
