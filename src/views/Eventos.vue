@@ -20,7 +20,7 @@
       <tbody>
         <tr v-for="evento in this.allEventos" :key="evento">
           <!-- <th scope="row">1</th> -->
-          <td>{{this.usuarioById(evento.criadorId).email}}</td>
+          <td>{{evento.criadorId}}<!-- {{this.usuarioById(evento.criadorId).email}} --></td>
           <td>{{evento.local}}</td>
           <td>{{evento.custo}}</td>
           <td>{{evento.sobreOEvento}}</td>
@@ -46,7 +46,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["allEventos","getUsuarioLogado","getsuarioById"])
+    ...mapGetters(["allEventos","getUsuarioLogado","usuarioById"])
   }
   /* ,
   components: {
