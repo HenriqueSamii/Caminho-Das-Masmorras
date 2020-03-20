@@ -1,7 +1,7 @@
 const state = {
     posts: [{
             id: 1,
-            criadorId: "1",
+            criadorId: 1,
             titulo: "post 1",
             imgURL: "https://img4.goodfon.com/wallpaper/big/1/2b/warhammer-40-000-death-guard-mortarion-nurgle-plague.jpg",
             corpo: "Nurgle is coming",
@@ -9,7 +9,7 @@ const state = {
         },
         {
             id: 2,
-            criadorId: "1",
+            criadorId: 1,
             titulo: "post 2",
             imgURL: "https://i.pinimg.com/736x/38/06/45/38064594c06483f3a13a84c911c947db.jpg",
             corpo: "praised be the omnissiah",
@@ -17,7 +17,7 @@ const state = {
         },
         {
             id: 3,
-            criadorId: "2",
+            criadorId: 2,
             titulo: "post 2",
             corpo: "E ai, quem topa uma mesa de D&D amanhã?",
             dataDeCriacao: "2020-03-20T18:25:43.511Z"
