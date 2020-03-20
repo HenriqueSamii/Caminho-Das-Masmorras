@@ -1,6 +1,6 @@
 <template>
   <div id="homeLogado">
-    {{this.usuarioById(this.getUsuarioLogado)}}
+    <h1>Bem vido {{this.usuarioById(this.getUsuarioLogado).nome}}</h1>
     <div class="cardList">
       <div class="card" v-for="post of this.allPosts" :key="post">
         <CardPost v-bind:postContent="post" />

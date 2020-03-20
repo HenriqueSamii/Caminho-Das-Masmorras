@@ -102,7 +102,9 @@ export default {
           email: this.email,
           password: this.password
         });
-        this.isLogin = true
+        this.nome = "";
+        this.email = "";
+        this.password = "";
         this.erro = "Usuario criado com sucesso";
         //this.$router.push({ name: "Home" });
       }

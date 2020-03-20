@@ -56,7 +56,7 @@ const mutations = {
     },
     deleteUsuarioLogadoId(state) {
         state.usuarioLogadoId = null;
-        console.log(state.usuarioLogadoId )
+        //console.log(state.usuarioLogadoId )
     },
     ///////////////////////////
     createUsuario(state, {
