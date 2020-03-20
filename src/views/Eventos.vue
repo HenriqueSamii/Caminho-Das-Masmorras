@@ -1,6 +1,7 @@
 <template>
   <div id="eventos">
     <button class="btn btn-primary" type="submit" v-if="isUsuarioLogado">Criar Evento</button>
+    <div class="tableScroll">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -29,29 +30,31 @@
               type="submit"
               v-if="getUsuarioLogado == evento.criadorId"
             >Deletar</button>
-          
+
             <button
               class="btn btn-primary"
               type="submit"
               v-if="estaNoEvento(evento.idDeParticipantes)"
             >Canselar</button>
-          
-          
-            <button
+
+            <router-link
+              tag="button"
               class="btn btn-primary"
               type="submit"
               v-if="getUsuarioLogado == evento.criadorId"
-            >Editar</button>
-          
+              :to="{name:'Home'}"
+            >Editar</router-link>
+
             <button
               class="btn btn-primary"
               type="submit"
-              v-if="!estaNoEvento(evento.idDeParticipantes)"
+              v-if="isUsuarioLogado && !estaNoEvento(evento.idDeParticipantes)"
             >Entrar No Evento</button>
           </td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
 
@@ -72,23 +75,37 @@ export default {
     ])
   },
   methods: {
-     estaNoEvento: function(lista) {
-      console.log(lista)
-      if (this.isUsuarioLogado) {
-        for (let id of lista) {
-          if (id == this.getUsuarioLogado) {
-            return true;
-          }
+    estaNoEvento: function(lista) {
+      //console.log(lista)
+      for (let id of lista) {
+        if (id == this.getUsuarioLogado) {
+          return true;
         }
       }
       return false;
-      //isUsuarioLogado && !estaNoEvento(evento.criadorId)
     }
   }
 };
 </script>
 <style>
-.butonTd button{
+.butonTd button {
   margin: 0.2em;
 }
+
+@media (orientation: portrait) {
+  /* For vertical viewports */
+  div.tableScroll {
+  
+  overflow: auto;
+  white-space: nowrap;
+}
+}
+
+ @media only screen and (max-device-width: 950px){
+div.tableScroll {
+  overflow: auto;
+  white-space: nowrap;
+}
+} 
+
 </style>
