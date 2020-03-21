@@ -42,7 +42,7 @@
               class="btn btn-primary"
               type="submit"
               v-if="getUsuarioLogado == evento.criadorId"
-              :to="{name:'Home'}"
+              :to="{name:'EditarEvento', params: { id: evento.id } }"
             >Editar</router-link>
 
             <button
