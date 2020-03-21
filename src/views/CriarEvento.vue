@@ -119,11 +119,12 @@ export default {
         } */
 </script>
 <style>
-#loginECreate {
+#criarEvento {
   width: 60%;
   float: none;
   margin: 0 auto;
   padding-top: 2.5em;
   padding-bottom: 2.5em;
 }
+
 </style>

@@ -1,6 +1,13 @@
 <template>
   <div id="homeLogado">
     <h1>Bem vido {{this.usuarioById(this.getUsuarioLogado).nome}}</h1>
+    <router-link
+      tag="button"
+      class="btn btn-primary"
+      type="submit"
+      v-if="isUsuarioLogado"
+      :to="{name:'CriarPost' }"
+    >Criar Post</router-link>
     <div class="cardList">
       <div class="card" v-for="post of this.allPosts" :key="post">
         <CardPost v-bind:postContent="post" />
@@ -18,7 +25,7 @@ export default {
   data: function(){
     return{};
   },computed: {
-    ...mapGetters(["getUsuarioLogado","usuarioById","allPosts"])
+    ...mapGetters(["getUsuarioLogado","usuarioById","allPosts","isUsuarioLogado"])
   },
   components: {
     CardPost
