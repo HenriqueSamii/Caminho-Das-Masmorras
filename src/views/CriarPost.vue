@@ -65,15 +65,6 @@ export default {
     }
   }
 };
-
-/* {
-            id: 1,
-            criadorId: 1,
-            titulo: "post 1",
-            imgURL: "https://img4.goodfon.com/wallpaper/big/1/2b/warhammer-40-000-death-guard-mortarion-nurgle-plague.jpg",
-            corpo: "Nurgle is coming",
-            dataDeCriacao: new Date().getDate() 
-        } */
 </script>
 <style>
 #criarPost {

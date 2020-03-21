@@ -1,28 +1,33 @@
 <template>
   <div id="cardPost">
     {{this.postContent}}
+    <router-link
+      tag="button"
+      class="btn btn-primary"
+      type="submit"
+      v-if="getUsuarioLogado == this.postContent.criadorId"
+      :to="{name:'EditarPost', params: { id: this.postContent.id } }"
+    >Editar</router-link>
   </div>
 </template>
 
 <script>
 //import { mapActions } from "vuex";
 //import { mapGetters, mapActions } from "vuex";
-
+import { mapGetters } from "vuex";
 export default {
   name: "loginECreate",
   props: {
     postContent: Object
   },
   data: function() {
-    return {
-      
-    };
+    return {};
   },
-  methods: {
-    
-  }
+  computed: {
+    ...mapGetters(["getUsuarioLogado"])
+  },
+  methods: {}
 };
 </script>
 <style>
-
 </style>

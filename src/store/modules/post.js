@@ -60,8 +60,8 @@ const mutations = {
     editPost(state, {
         post
     }) {
-        for (let [i, e] of state.posts) {
-            if (e.id == post.id) {
+        for (let i in state.posts) {
+            if (state.posts[i].id == post.id) {
                 state.posts[i] = post;
                 break;
             }
