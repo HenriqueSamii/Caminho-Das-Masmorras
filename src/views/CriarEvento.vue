@@ -2,53 +2,72 @@
   <div id="criarEvento">
     <h1>Novo Evento</h1>
     <form v-on:submit.prevent="cirarNovoEvento">
-      <div v-if="!isLogin" class="form-group">
-        <label for="exampleInputEmail1">Nome</label>
+      <div class="form-group">
+        <label>Local</label>
         <input
-          v-model="nome"
-          ref="nome"
+          v-model="local"
           type="text"
           class="form-control"
-          id="exampleInputNome1"
-          aria-describedby="nomeHelp"
-          placeholder="Entere com o seu Nome"
+          placeholder="Onde vai occorer este evento"
           required
         />
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
+        <label>Custo</label>
         <input
-          v-model="email"
-          ref="email"
-          type="email"
+          v-model="custo"
+          type="text"
           class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Entere com o seu email"
+          placeholder="Custo"
           required
         />
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label>Inicio Do Evento</label>
         <input
-          v-model="password"
-          ref="password"
-          type="password"
+          v-model="inicioDoEvento"
+          type="datetime"
           class="form-control"
-          id="exampleInputPassword1"
-          placeholder="Entere com o sua Password"
           required
         />
       </div>
-      <button v-if="isLogin" type="submit" class="btn btn-primary">Logar</button>
-      <button v-else type="submit" class="btn btn-primary">Criar Conta</button>
+      <div class="form-group">
+        <label>Fim Do Evento</label>
+        <input
+          v-model="fimDoEvento"
+          type="datetime"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>Numero Maximo De Pessoas</label>
+        <input
+          v-model="NumeroMaximoDePessoas"
+          type="number"
+          class="form-control"
+          placeholder="0"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>Sobre O Evento</label>
+        <input
+          v-model="sobreOEvento"
+          type="text"
+          class="form-control"
+          placeholder="o que seu evento vai ter"
+          required
+        />
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Criar Evento</button>
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-//import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "CriarEvento",
@@ -58,16 +77,31 @@ export default {
   },
   data: function() {
     return {
-      erro: "",
-      email: "",
-      password: "",
-      nome: ""
+      local: "",
+      custo: "",
+      inicioDoEvento: "",
+      fimDoEvento: "",
+      NumeroMaximoDePessoas: null,
+      sobreOEvento: ""
     };
   },
+  computed: {
+    ...mapGetters(["getUsuarioLogado"])
+  },
   methods: {
-    ...mapActions(["login", "createUsuario"]),
-    cirarNovoEvento: function(){
-        
+    ...mapActions(["createEvento"]),
+    cirarNovoEvento: function() {
+      this.createEvento({
+        criadorId: this.getUsuarioLogado,
+        local: this.local,
+        custo: this.custo,
+        inicioDoEvento: this.inicioDoEvento,
+        fimDoEvento: this.fimDoEvento,
+        NumeroMaximoDePessoas: this.NumeroMaximoDePessoas,
+        idDeParticipantes: [],
+        sobreOEvento: this.sobreOEvento
+      });
+      this.$router.push({ name: "Eventos" });
     }
   }
 };

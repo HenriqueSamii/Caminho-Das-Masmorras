@@ -28,10 +28,10 @@ const getters = {
         return state.eventos
     },
     eventoById: (state) => (id) => {
-        return state.usuarios.find(evento => evento.id === id)
+        return state.eventos.find(evento => evento.id === id)
     },
     meusEventos: (state) => {
-        return state.usuarios.find(evento => evento.criadorId === state.usuarioLogadoId)
+        return state.eventos.find(evento => evento.criadorId === state.usuarioLogadoId)
     }
 };
 const mutations = {
