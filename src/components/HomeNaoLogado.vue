@@ -3,7 +3,7 @@
     <article id="ProcurePor" class="divisorias">
       <h2 tabindex="1">Procure por sua aventura</h2>
       <div>
-        <form>
+        <form v-on:submit="alerta('Pesquisa')">
           <input tabindex="2" type="text" />
           <input tabindex="3" type="submit" value="Proucurar" />
         </form>
@@ -55,7 +55,7 @@
     <div class="divisorias" id="formulario">
       <h2 tabindex="12">Contato</h2>
       <div id="formDiv">
-        <form>
+        <form v-on:submit="alerta('Mandar mensagem para criador do site')"> 
           <div class="contatoFormLine">
             <div class="labelDiv">
               <label tabindex="13" for="nome">Nome:</label>
@@ -99,7 +99,12 @@
 
 <script>
 export default {
-  name: "HomeNaoLogado"
+  name: "HomeNaoLogado",
+  methods:{
+    alerta: function(funcao){
+      alert(funcao + ' ainda em em teste')
+    }
+  }
 };
 </script>
 
@@ -135,7 +140,12 @@ export default {
 .naoLogado, #formulario{
   padding-top: 0.5em;
 }
-
+a:link {
+  color: rgba(108, 0, 170, 0.884);
+}
+a:visited {
+  color: rgb(117, 78, 117);
+}
 @media (orientation: portrait) {
   /* For vertical viewports */
   .naoLogado div.img img{

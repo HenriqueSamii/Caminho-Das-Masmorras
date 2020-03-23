@@ -131,7 +131,7 @@ export default {
   width: 95%;
   margin:0 auto;
   margin-top: 2em;
-  background-color: antiquewhite;
+  background-color: white/* antiquewhite */;
 }
 
 @media (orientation: portrait) {

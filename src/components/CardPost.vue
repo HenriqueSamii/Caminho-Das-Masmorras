@@ -80,4 +80,7 @@ export default {
 .sideText{
   font-weight: bold;
 }
+.card{
+  background-color: antiquewhite;
+}
 </style>
