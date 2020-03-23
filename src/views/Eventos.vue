@@ -35,13 +35,15 @@
                 class="btn btn-primary"
                 type="submit"
                 v-if="getUsuarioLogado == evento.criadorId"
+                v-on:click="deletrarEvento(evento.id)"
               >Deletar</button>
 
               <button
                 class="btn btn-primary"
                 type="submit"
                 v-if="estaNoEvento(evento.idDeParticipantes)"
-              >Canselar</button>
+                v-on:click="sairDoEvento(evento.id)"
+              >Sair</button>
 
               <router-link
                 tag="button"
@@ -55,6 +57,7 @@
                 class="btn btn-primary"
                 type="submit"
                 v-if="isUsuarioLogado && !estaNoEvento(evento.idDeParticipantes) && (evento.idDeParticipantes.length < evento.NumeroMaximoDePessoas)"
+                v-on:click="entrarNoEvento(evento.id)"
               >Entrar No Evento</button>
             </td>
           </tr>
@@ -66,7 +69,7 @@
 
 <script>
 //import Header from "./components/Header.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Eventos",
   data: function() {
@@ -77,10 +80,13 @@ export default {
       "allEventos",
       "getUsuarioLogado",
       "usuarioById",
-      "isUsuarioLogado"
+      "isUsuarioLogado",
+      "eventoById",
+      "getUsuarioLogado"
     ])
   },
   methods: {
+    ...mapActions(["editEvento", "deleteEvento"]),
     estaNoEvento: function(lista) {
       //console.log(lista)
       for (let id of lista) {
@@ -89,6 +95,24 @@ export default {
         }
       }
       return false;
+    },
+    deletrarEvento: function(id) {
+      this.deletePost(id);
+    },
+    sairDoEvento: function(id) {
+      let even = this.eventoById(id);
+      for (let i in even.idDeParticipantes) {
+        if (even.idDeParticipantes[i] == this.getUsuarioLogado) {
+          even.idDeParticipantes.splice(i, 1);
+          this.editEvento(even);
+          break;
+        }
+      }
+    },
+    entrarNoEvento: function(id) {
+      let e = this.eventoById(id);
+      e.idDeParticipantes.push(this.getUsuarioLogado);
+      this.editEvento(e);
     }
   }
 };

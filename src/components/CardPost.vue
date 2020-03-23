@@ -8,13 +8,19 @@
       v-if="getUsuarioLogado == this.postContent.criadorId"
       :to="{name:'EditarPost', params: { id: this.postContent.id } }"
     >Editar</router-link>
+    <button
+                class="btn btn-primary"
+                type="button"
+                v-on:click="deletePost(this.postContent.id)"
+                v-if="getUsuarioLogado == this.postContent.criadorId"
+              >Deletar</button>
   </div>
 </template>
 
 <script>
 //import { mapActions } from "vuex";
-//import { mapGetters, mapActions } from "vuex";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+//import { mapGetters } from "vuex";
 export default {
   name: "loginECreate",
   props: {
@@ -26,7 +32,9 @@ export default {
   computed: {
     ...mapGetters(["getUsuarioLogado"])
   },
-  methods: {}
+  methods: {
+    ...mapActions(["deletePost"])
+  }
 };
 </script>
 <style>

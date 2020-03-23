@@ -46,7 +46,7 @@
           v-model="NumeroMaximoDePessoas"
           type="number"
           class="form-control"
-          placeholder="0"
+          lazy
           required
         />
       </div>
@@ -81,7 +81,7 @@ export default {
       custo: "",
       inicioDoEvento: "",
       fimDoEvento: "",
-      NumeroMaximoDePessoas: null,
+      NumeroMaximoDePessoas: 0,
       sobreOEvento: ""
     };
   },

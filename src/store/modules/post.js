@@ -50,8 +50,8 @@ const mutations = {
     deletePost(state, {
         id
     }) {
-        for (let [i, post] of state.posts) {
-            if (post.id == id) {
+        for (let [i, p] of state.posts) {
+            if (p.id == id) {
                 state.posts.splice(i, 1);
                 break;
             }
