@@ -9,7 +9,7 @@
       :to="{name:'CriarPost' }"
     >Criar Post</router-link>
     <div class="cardList">
-      <div class="card" v-for="post of this.allPosts" :key="post">
+      <div class="carde" v-for="post of this.allPosts" :key="post">
         <CardPost v-bind:postContent="post" />
       </div>
     </div>

@@ -19,6 +19,7 @@ const state = {
             id: 3,
             criadorId: 2,
             titulo: "post 2",
+            imgURL: "",
             corpo: "E ai, quem topa uma mesa de D&D amanhã?",
             dataDeCriacao: "2020-03-20T18:25:43.511Z"
         }
