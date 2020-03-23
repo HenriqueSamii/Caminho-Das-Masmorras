@@ -57,10 +57,6 @@ export default {
 };
 </script>
 <style>
-#cardPost {
-  /*  background-color: antiquewhite; */
-  /* width: 70%; */
-}
 .container {
   width: 70%;
   background-color: transparent;

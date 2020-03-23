@@ -135,7 +135,6 @@ export default {
 }
 
 @media (orientation: portrait) {
-  /* For vertical viewports */
   div.tableScroll {
     overflow: auto;
     white-space: nowrap;
