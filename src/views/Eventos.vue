@@ -97,7 +97,7 @@ export default {
       return false;
     },
     deletrarEvento: function(id) {
-      this.deletePost(id);
+      this.deleteEvento(id);
     },
     sairDoEvento: function(id) {
       let even = this.eventoById(id);

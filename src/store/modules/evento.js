@@ -50,8 +50,8 @@ const mutations = {
     deleteEvento(state, {
         id
     }) {
-        for (let [i, evento] of state.eventos) {
-            if (evento.id == id) {
+        for (let i in state.eventos) {
+            if (state.eventos[i].id == id) {
                 state.eventos.splice(i, 1);
                 break;
             }

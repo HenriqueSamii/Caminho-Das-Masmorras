@@ -11,7 +11,7 @@
     <button
                 class="btn btn-primary"
                 type="button"
-                v-on:click="deletePost(this.postContent.id)"
+                v-on:click="deleteThisPos"
                 v-if="getUsuarioLogado == this.postContent.criadorId"
               >Deletar</button>
   </div>
@@ -33,7 +33,10 @@ export default {
     ...mapGetters(["getUsuarioLogado"])
   },
   methods: {
-    ...mapActions(["deletePost"])
+    ...mapActions(["deletePost"]),
+    deleteThisPos: function(){
+      this.deletePost(this.postContent.id)
+    }
   }
 };
 </script>
