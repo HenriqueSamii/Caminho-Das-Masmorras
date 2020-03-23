@@ -38,13 +38,6 @@
                 v-on:click="deletrarEvento(evento.id)"
               >Deletar</button>
 
-              <button
-                class="btn btn-primary"
-                type="submit"
-                v-if="estaNoEvento(evento.idDeParticipantes)"
-                v-on:click="sairDoEvento(evento.id)"
-              >Sair</button>
-
               <router-link
                 tag="button"
                 class="btn btn-primary"
@@ -52,6 +45,13 @@
                 v-if="getUsuarioLogado == evento.criadorId"
                 :to="{name:'EditarEvento', params: { id: evento.id } }"
               >Editar</router-link>
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+                v-if="estaNoEvento(evento.idDeParticipantes)"
+                v-on:click="sairDoEvento(evento.id)"
+              >Sair</button>
 
               <button
                 class="btn btn-primary"

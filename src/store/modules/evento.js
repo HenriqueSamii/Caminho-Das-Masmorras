@@ -60,6 +60,12 @@ const mutations = {
     editEvento(state, {
         evento
     }) {
+        /* for (let i in state.eventos) {
+            if (state.eventos[i].id == evento.id) {
+                state.eventos[i] = evento;
+                break;
+            }
+        } */
         for (let [i, e] of state.eventos) {
             if (e.id == evento.id) {
                 state.eventos[i] = evento;
