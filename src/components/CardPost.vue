@@ -41,4 +41,7 @@ export default {
 };
 </script>
 <style>
+#cardPost{
+  background-color: antiquewhite;
+}
 </style>

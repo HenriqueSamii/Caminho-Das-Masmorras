@@ -3,7 +3,7 @@
     <h1>Bem vido {{this.usuarioById(this.getUsuarioLogado).nome}}</h1>
     <router-link
       tag="button"
-      class="btn btn-primary"
+      class="btn btn-primary criar"
       type="submit"
       v-if="isUsuarioLogado"
       :to="{name:'CriarPost' }"
@@ -33,4 +33,7 @@ export default {
 };
 </script>
 <style>
+.criar{
+  margin: 0.5em;
+}
 </style>

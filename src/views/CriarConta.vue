@@ -18,4 +18,7 @@ export default {
 };
 </script>
 <style>
+#criarConta{
+  height: 100vh;
+}
 </style>

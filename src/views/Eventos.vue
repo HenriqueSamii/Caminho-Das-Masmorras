@@ -2,7 +2,7 @@
   <div id="eventos">
     <router-link
       tag="button"
-      class="btn btn-primary"
+      class="btn btn-primary criar"
       type="submit"
       v-if="isUsuarioLogado"
       :to="{name:'CriarEvento' }"
@@ -118,8 +118,20 @@ export default {
 };
 </script>
 <style>
+.criar{
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
 .butonTd button {
   margin: 0.2em;
+}
+
+.tableScroll{
+  width: 95%;
+  margin:0 auto;
+  margin-top: 2em;
+  background-color: antiquewhite;
 }
 
 @media (orientation: portrait) {

@@ -1,6 +1,6 @@
 <template>
   <div class="naoLogado">
-    <article id="ProcurePor">
+    <article id="ProcurePor" class="divisorias">
       <h2 tabindex="1">Procure por sua aventura</h2>
       <div>
         <form>
@@ -13,7 +13,7 @@
       </div>
     </article>
 
-    <div >
+    <div class="divisorias">
       <h2 class="card-heading  text-center my-auto" tabindex="5">Sobre nós</h2>
       <div class="row justify-content-center imgText">
         <div class="col-xs-6 img">
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="divisorias">
       <h2 class="card-heading  text-center my-auto" tabindex="8">Sobre o criador</h2>
       <div class="row justify-content-center imgText">
         <div class="col-xs-6 img">
@@ -52,7 +52,7 @@
       </div>
     </div>
     
-    <div id="formulario">
+    <div class="divisorias" id="formulario">
       <h2 tabindex="12">Contato</h2>
       <div id="formDiv">
         <form>
@@ -104,11 +104,12 @@ export default {
 </script>
 
 <style>
+.divisorias{
+  margin-top: 0.9em;
+  margin-bottom: 0.9em;
+}
 #formulario, #ProcurePor{
-  display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
+  text-align: center;
 }
 
 .card{
